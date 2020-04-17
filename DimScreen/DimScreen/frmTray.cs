@@ -110,7 +110,7 @@ namespace DimScreen
 
 
                 //Increase Percrent of Dimming.
-                if (key == Keys.Add && modifier == KeyModifier.Control)
+                if (key == Keys.Subtract && modifier == KeyModifier.Control)
                 {
                     if (DimPercent == 100) return;
                     DimPercent += 10;
@@ -118,7 +118,7 @@ namespace DimScreen
                 }
 
                 //Decrease Percent of Dimming.
-                if (key == Keys.Subtract && modifier == KeyModifier.Control)
+                if (key == Keys.Add && modifier == KeyModifier.Control)
                 {
                     if (DimPercent == 0) return;
                     DimPercent -= 10;
