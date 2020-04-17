@@ -89,7 +89,9 @@ namespace DimScreen
                     while (true)
                     {
                         this.TopMost = true;
-                        this.WindowState = FormWindowState.Maximized;
+                        
+                        //this.WindowState = FormWindowState.Maximized;
+                        
                         this.FormBorderStyle = FormBorderStyle.None;
                         Thread.Sleep(1);
                     }
@@ -181,7 +183,8 @@ namespace DimScreen
         private void frmMain_Load(object sender, EventArgs e)
         {
             // use working space rectangle info
-            this.Size = new System.Drawing.Size(Size.Width, Size.Height);
+            //this.Size = new System.Drawing.Size(Size.Width, Size.Height);
+            this.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height + 500);
             this.Location = new System.Drawing.Point(Area.X, Area.Y);
 
             applyTransparency();

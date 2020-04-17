@@ -20,3 +20,15 @@ C:\Users\Killdnaction\Desktop\Roberts Stuff\C# Projects\DimScreen-master\DimScre
 C:\Users\Killdnaction\Desktop\Roberts Stuff\C# Projects\DimScreen-master\DimScreen\DimScreen\obj\x86\Debug\DimScreen.frmTray.resources
 C:\Users\Killdnaction\Desktop\Roberts Stuff\C# Projects\DimScreen-master\DimScreen\DimScreen\obj\x86\Debug\DimScreen.Properties.Resources.resources
 C:\Users\Killdnaction\Desktop\Roberts Stuff\C# Projects\DimScreen-master\DimScreen\DimScreen\obj\x86\Debug\DimScreen.csproj.GenerateResource.Cache
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\bin\Debug\DimScreen.exe.config
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\bin\Debug\DimScreen.exe
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\bin\Debug\DimScreen.pdb
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.frmOSD.resources
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.frmMain.resources
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.frmTray.resources
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.Properties.Resources.resources
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.csproj.GenerateResource.cache
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.csproj.CoreCompileInputs.cache
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.exe
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.pdb
+D:\Projects\Visual Studio\Visual Studio 2017\Projects\DimScreen\DimScreen\DimScreen\obj\x86\Debug\DimScreen.csprojAssemblyReference.cache

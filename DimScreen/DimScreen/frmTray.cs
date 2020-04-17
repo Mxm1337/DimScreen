@@ -142,14 +142,18 @@ namespace DimScreen
             clearOverlays();
 
             // add screens if they don't already exist
+            
             if (overlays.Count != Screen.AllScreens.Length)
             {
                 // apply dimness onto all screens
                 foreach (var screen in Screen.AllScreens)
                 {
+                    
                     frmMain overlay = new frmMain();
                     overlay.Dimness = 0;
                     overlay.Area = screen.WorkingArea;
+                    
+                    
                     overlay.Show();
 
                     // add to list of overlays
@@ -191,6 +195,7 @@ namespace DimScreen
 
             //TEST: force command line arg to test
             //arg = "50";
+            
 
             if (arg != "")
             {
@@ -289,7 +294,10 @@ namespace DimScreen
             regkey.SetValue("DimAmount", DimPercent);
 
             foreach (frmMain form in overlays)
-                form.Dimness = value / 100;
+            {
+                if(MousePosition.X>form.Location.X && MousePosition.X<form.Location.X+form.Width)
+                    form.Dimness = value / 100;
+            }
         }
 
         private void menuRestart_Click(object sender, EventArgs e)
@@ -306,7 +314,6 @@ namespace DimScreen
         {
             contextMenuStrip1.Show();
         }
-
-
+        
     }
 }
