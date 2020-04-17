@@ -102,6 +102,13 @@ namespace DimScreen
                 KeyModifier modifier = (KeyModifier)((int)m.LParam & 0xFFFF);       // The modifier of the hotkey that was pressed.
                 int id = m.WParam.ToInt32();                                        // The id of the hotkey that was pressed.
 
+                foreach (frmMain form in overlays)
+                {
+                    if (MousePosition.X > form.Location.X && MousePosition.X < form.Location.X + form.Width)
+                        DimPercent = form.Dimness*100;
+                }
+
+
                 //Increase Percrent of Dimming.
                 if (key == Keys.Add && modifier == KeyModifier.Control)
                 {
@@ -288,6 +295,7 @@ namespace DimScreen
 
             //Get value of selected item
             var value = float.Parse((menuItem.Tag.ToString()));
+
 
             //Saving Percentage of dim value for use with hotkeys.
             DimPercent = value;

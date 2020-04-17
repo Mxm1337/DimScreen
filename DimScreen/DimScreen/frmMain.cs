@@ -82,22 +82,22 @@ namespace DimScreen
 
 
             //Keep frmMain OnTop.
-            new Thread(() =>
-            {
-                try
-                {
-                    while (true)
-                    {
-                        this.TopMost = true;
+            //new Thread(() =>
+            //{
+            //    try
+            //    {
+            //        while (true)
+            //        {
+            //            this.TopMost = true;
                         
-                        //this.WindowState = FormWindowState.Maximized;
+            //            //this.WindowState = FormWindowState.Maximized;
                         
-                        this.FormBorderStyle = FormBorderStyle.None;
-                        Thread.Sleep(1);
-                    }
-                }
-                catch (Exception ex) { }
-            }).Start();
+            //            this.FormBorderStyle = FormBorderStyle.None;
+            //            Thread.Sleep(1);
+            //        }
+            //    }
+            //    catch (Exception ex) { }
+            //}).Start();
 
         }        
 
