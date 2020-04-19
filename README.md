@@ -5,7 +5,13 @@ Allows you to dim your desktop if its a bit to bright.
 
 ![Preview](PREVIEW.png)
 
-##Features
+This program is a fork from the orginal
+
+##Added Features
+- Control each screen seperately
+- Fixed certain bugs that made the program not work for me
+
+##Orginal Features
 - Multiple monitors
 - Command line support
 - Smooth transitions!
