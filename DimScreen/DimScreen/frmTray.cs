@@ -102,8 +102,15 @@ namespace DimScreen
                 KeyModifier modifier = (KeyModifier)((int)m.LParam & 0xFFFF);       // The modifier of the hotkey that was pressed.
                 int id = m.WParam.ToInt32();                                        // The id of the hotkey that was pressed.
 
+                foreach (frmMain form in overlays)
+                {
+                    if (MousePosition.X > form.Location.X && MousePosition.X < form.Location.X + form.Width)
+                        DimPercent = form.Dimness*100;
+                }
+
+
                 //Increase Percrent of Dimming.
-                if (key == Keys.Add && modifier == KeyModifier.Control)
+                if (key == Keys.Subtract && modifier == KeyModifier.Control)
                 {
                     if (DimPercent == 100) return;
                     DimPercent += 10;
@@ -111,7 +118,7 @@ namespace DimScreen
                 }
 
                 //Decrease Percent of Dimming.
-                if (key == Keys.Subtract && modifier == KeyModifier.Control)
+                if (key == Keys.Add && modifier == KeyModifier.Control)
                 {
                     if (DimPercent == 0) return;
                     DimPercent -= 10;
@@ -142,14 +149,18 @@ namespace DimScreen
             clearOverlays();
 
             // add screens if they don't already exist
+            
             if (overlays.Count != Screen.AllScreens.Length)
             {
                 // apply dimness onto all screens
                 foreach (var screen in Screen.AllScreens)
                 {
+                    
                     frmMain overlay = new frmMain();
                     overlay.Dimness = 0;
                     overlay.Area = screen.WorkingArea;
+                    
+                    
                     overlay.Show();
 
                     // add to list of overlays
@@ -191,6 +202,7 @@ namespace DimScreen
 
             //TEST: force command line arg to test
             //arg = "50";
+            
 
             if (arg != "")
             {
@@ -204,6 +216,7 @@ namespace DimScreen
                 {
                     MessageBox.Show(this, "Expecting number from 0 to 100 to represent percentage of dimming. 0 means no change, 100 being totally dark.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     configureOverlays(0);
+                    Console.WriteLine(ex.ToString());
                 }
             }
             else
@@ -219,19 +232,11 @@ namespace DimScreen
                 {
                     MessageBox.Show(this, "Expecting number from 0 to 100 to represent percentage of dimming. 0 means no change, 100 being totally dark.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     configureOverlays(0);
+                    Console.WriteLine(ex.ToString());
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
+        
 
         private void menuExit_Click(object sender, EventArgs e)
         {
@@ -284,12 +289,17 @@ namespace DimScreen
             //Get value of selected item
             var value = float.Parse((menuItem.Tag.ToString()));
 
+
             //Saving Percentage of dim value for use with hotkeys.
             DimPercent = value;
             regkey.SetValue("DimAmount", DimPercent);
-
+            
             foreach (frmMain form in overlays)
-                form.Dimness = value / 100;
+            {
+                if(MousePosition.X>form.Location.X && MousePosition.X<form.Location.X+form.Width && MousePosition.Y>form.Location.Y && MousePosition.Y<form.Location.Y+form.Height)
+                    form.Dimness = value / 100;
+                
+            }
         }
 
         private void menuRestart_Click(object sender, EventArgs e)
@@ -306,7 +316,6 @@ namespace DimScreen
         {
             contextMenuStrip1.Show();
         }
-
-
+        
     }
 }
