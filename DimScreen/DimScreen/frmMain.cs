@@ -79,26 +79,7 @@ namespace DimScreen
         {
             InitializeComponent();
             timerPhase.Tick += timerPhase_Tick;
-
-
-            //Keep frmMain OnTop.
-            //new Thread(() =>
-            //{
-            //    try
-            //    {
-            //        while (true)
-            //        {
-            //            this.TopMost = true;
-                        
-            //            //this.WindowState = FormWindowState.Maximized;
-                        
-            //            this.FormBorderStyle = FormBorderStyle.None;
-            //            Thread.Sleep(1);
-            //        }
-            //    }
-            //    catch (Exception ex) { }
-            //}).Start();
-
+            
         }        
 
         private void timerPhase_Tick(object sender, EventArgs e)
@@ -109,6 +90,8 @@ namespace DimScreen
             overlay.Show();
             overlay.TopLevel = true;
             overlay.lblDimmed.Text = RoundToNearest(Math.Round(currentValue * 100), 10) + "% Dimmed";
+            CenterToScreenWithMouse(overlay);
+            
 
             if (Math.Round(currentValue) == Math.Round(targetValue))
             {
@@ -118,7 +101,27 @@ namespace DimScreen
 
         }
 
+        protected void CenterToScreenWithMouse(Form form)
+        {
+            
+            foreach (var screen in Screen.AllScreens)
+            {
+                Rectangle workingArea = screen.WorkingArea;
+                if (workingArea.X < MousePosition.X && workingArea.X + workingArea.Width > MousePosition.X && workingArea.Y < MousePosition.Y && workingArea.Y + workingArea.Height > MousePosition.Y)
+                {
+                    
+                    form.Location = new Point()
+                    {
+                        X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - form.Width) / 2),
+                        Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - form.Height) / 2)
+                    };
+                    break;
+                }
+            }
 
+
+
+        }
 
 
 

@@ -15,10 +15,14 @@ namespace DimScreen
         public frmOSD()
         {
             InitializeComponent();
+            
         }
+
+        
+
         private void frmDisplay_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
