@@ -20,7 +20,7 @@ namespace DimScreen
 
 
         public System.Drawing.Rectangle Area { get; set; }
-
+        
         private float targetValue;
         private float currentValue;
 
@@ -186,9 +186,9 @@ namespace DimScreen
         private void frmMain_Load(object sender, EventArgs e)
         {
             // use working space rectangle info
-            //this.Size = new System.Drawing.Size(Size.Width, Size.Height);
-            this.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height + 500);
+            this.Bounds = Area;
             this.Location = new System.Drawing.Point(Area.X, Area.Y);
+            
 
             applyTransparency();
         }

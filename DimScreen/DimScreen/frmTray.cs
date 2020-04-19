@@ -158,7 +158,7 @@ namespace DimScreen
                     
                     frmMain overlay = new frmMain();
                     overlay.Dimness = 0;
-                    overlay.Area = screen.WorkingArea;
+                    overlay.Area = screen.Bounds;
                     
                     
                     overlay.Show();
@@ -296,8 +296,11 @@ namespace DimScreen
             
             foreach (frmMain form in overlays)
             {
-                if(MousePosition.X>form.Location.X && MousePosition.X<form.Location.X+form.Width && MousePosition.Y>form.Location.Y && MousePosition.Y<form.Location.Y+form.Height)
+                if (MousePosition.X > form.Location.X && MousePosition.X < form.Location.X + form.Width && MousePosition.Y > form.Location.Y && MousePosition.Y < form.Location.Y + form.Height)
+                {
                     form.Dimness = value / 100;
+                    break;
+                }
                 
             }
         }
